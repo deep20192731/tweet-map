@@ -1,0 +1,4 @@
+/build/
+/target/
+/src/AwsCredentials.properties
+/src/TwitterCredentials.properties
