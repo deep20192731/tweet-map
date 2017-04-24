@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <servlet>
+    <display-name>tweet-map-backend</display-name>
+    <servlet-name>tweet-map</servlet-name>
+    <servlet-class>com.servlet.SNSMsgReceiver</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tweet-map</servlet-name>
+    <url-pattern>/sns</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>tweet-map-apis</display-name>
+    <servlet-name>tweet-map-api</servlet-name>
+    <servlet-class>com.servlet.TweetResource</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tweet-map-api</servlet-name>
+    <url-pattern>/tweet/*</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <listener> <!-- Not required now, since we are manually subscribing an endpoint to a topic -->
+   <listener-class>com.daemonservices.AppServerListener</listener-class>
+  </listener>
+</web-app>
